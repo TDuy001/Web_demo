@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Ticket</title>
+</head>
+<body>
+    <h1>Edit Ticket</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form action="/Ticket/Edit" method="post">
+                <!-- Thêm thông báo lỗi -->
+                <div class="text-danger" id="validationSummary">
+                    <!-- Thông báo lỗi sẽ được hiển thị ở đây -->
+                </div>
+
+                <input type="hidden" name="TicketId" value="{TicketId}" />
+                <input type="hidden" name="RowVersion" value="{RowVersion}" /> <!-- Thêm trường RowVersion -->
+
+                <div class="form-group">
+                    <label for="EventId" class="control-label">Event</label>
+                    <select id="EventId" name="EventId" class="form-control">
+                        <option value="">Select Event</option>
+                        <!-- Thêm các tùy chọn ở đây -->
+                    </select>
+                    <span class="text-danger" id="eventValidationError">
+                        <!-- Thông báo lỗi Event -->
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="OrderId" class="control-label">Order</label>
+                    <select id="OrderId" name="OrderId" class="form-control">
+                        <option value="">Select Order</option>
+                        <!-- Thêm các tùy chọn ở đây -->
+                    </select>
+                    <span class="text-danger" id="orderValidationError">
+                        <!-- Thông báo lỗi Order -->
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="Price" class="control-label">Price</label>
+                    <input type="text" id="Price" name="Price" class="form-control" value="{Price}" />
+                    <span class="text-danger" id="priceValidationError">
+                        <!-- Thông báo lỗi Price -->
+                    </span>
+                </div>
+
+                <!-- Các thuộc tính bổ sung của lớp con -->
+                <div id="concertTicketFields" style="display: none;">
+                    <div class="form-group">
+                        <label for="SeatNumber" class="control-label">Seat Number</label>
+                        <input type="text" id="SeatNumber" name="SeatNumber" class="form-control" value="{SeatNumber}" />
+                        <span class="text-danger" id="seatNumberValidationError">
+                            <!-- Thông báo lỗi Seat Number -->
+                        </span>
+                    </div>
+                </div>
+
+                <div id="vipTicketFields" style="display: none;">
+                    <div class="form-group">
+                        <label for="LoungeAccess" class="control-label">Lounge Access</label>
+                        <input type="text" id="LoungeAccess" name="LoungeAccess" class="form-control" value="{LoungeAccess}" />
+                        <span class="text-danger" id="loungeAccessValidationError">
+                            <!-- Thông báo lỗi Lounge Access -->
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a href="/Ticket">Back to List</a>
+    </div>
+</body>
+</html>

@@ -41,6 +41,7 @@
           "Microsoft.AspNetCore.Grpc.Swagger": "0.9.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.0",
           "Microsoft.AspNetCore.Mvc.Testing": "9.0.0",
+          "Microsoft.AspNetCore.Razor.Runtime": "2.2.0",
           "Microsoft.EntityFrameworkCore.Design": "9.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "9.0.0",
@@ -82,7 +83,7 @@
           "Microsoft.AspNetCore.Hosting.Abstractions": "9.0.0.0",
           "Microsoft.AspNetCore.Hosting": "9.0.0.0",
           "Microsoft.AspNetCore.Hosting.Server.Abstractions": "9.0.0.0",
-          "Microsoft.AspNetCore.Html.Abstractions": "9.0.0.0",
+          "Microsoft.AspNetCore.Html.Abstractions.Reference": "9.0.0.0",
           "Microsoft.AspNetCore.Http.Abstractions": "9.0.0.0",
           "Microsoft.AspNetCore.Http.Connections.Common": "9.0.0.0",
           "Microsoft.AspNetCore.Http.Connections": "9.0.0.0",
@@ -112,8 +113,8 @@
           "Microsoft.AspNetCore.Mvc.ViewFeatures": "9.0.0.0",
           "Microsoft.AspNetCore.OutputCaching": "9.0.0.0",
           "Microsoft.AspNetCore.RateLimiting": "9.0.0.0",
-          "Microsoft.AspNetCore.Razor": "9.0.0.0",
-          "Microsoft.AspNetCore.Razor.Runtime": "9.0.0.0",
+          "Microsoft.AspNetCore.Razor.Reference": "9.0.0.0",
+          "Microsoft.AspNetCore.Razor.Runtime.Reference": "9.0.0.0",
           "Microsoft.AspNetCore.RequestDecompression": "9.0.0.0",
           "Microsoft.AspNetCore.ResponseCaching.Abstractions": "9.0.0.0",
           "Microsoft.AspNetCore.ResponseCaching": "9.0.0.0",
@@ -1089,6 +1090,11 @@
           "lib/net9.0/Microsoft.AspNetCore.Grpc.Swagger.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
+        "dependencies": {
+          "System.Text.Encodings.Web": "6.0.0"
+        }
+      },
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore/9.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational": "9.0.0",
@@ -1120,6 +1126,11 @@
           "lib/net9.0/Microsoft.AspNetCore.Mvc.Testing.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Razor/2.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Html.Abstractions": "2.2.0"
+        }
+      },
       "Microsoft.AspNetCore.Razor.Language/6.0.24": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Language.dll": {
@@ -1129,6 +1140,12 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Language.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Razor.Runtime/2.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Html.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Razor": "2.2.0"
         }
       },
       "Microsoft.AspNetCore.TestHost/9.0.0": {
@@ -3527,7 +3544,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Html.Abstractions/9.0.0.0": {
+      "Microsoft.AspNetCore.Html.Abstractions.Reference/9.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Html.Abstractions.dll": {}
         },
@@ -3707,13 +3724,13 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Razor/9.0.0.0": {
+      "Microsoft.AspNetCore.Razor.Reference/9.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Razor.dll": {}
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Razor.Runtime/9.0.0.0": {
+      "Microsoft.AspNetCore.Razor.Runtime.Reference/9.0.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Razor.Runtime.dll": {}
         },
@@ -5609,6 +5626,13 @@
       "path": "microsoft.aspnetcore.grpc.swagger/0.9.0",
       "hashPath": "microsoft.aspnetcore.grpc.swagger.0.9.0.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Y4rs5aMEXY8G7wJo5S3EEt6ltqyOTr/qOeZzfn+hw/fuQj5GppGckMY5psGLETo1U9hcT5MmAhaT5xtusM1b5g==",
+      "path": "microsoft.aspnetcore.html.abstractions/2.2.0",
+      "hashPath": "microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/9.0.0": {
       "type": "package",
       "serviceable": true,
@@ -5623,12 +5647,26 @@
       "path": "microsoft.aspnetcore.mvc.testing/9.0.0",
       "hashPath": "microsoft.aspnetcore.mvc.testing.9.0.0.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Razor/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-V54PIyDCFl8COnTp9gezNHpUNHk7F9UnerGeZy3UfbnwYvfzbo+ipqQmSgeoESH8e0JvKhRTyQyZquW2EPtCmg==",
+      "path": "microsoft.aspnetcore.razor/2.2.0",
+      "hashPath": "microsoft.aspnetcore.razor.2.2.0.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Razor.Language/6.0.24": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-kBL6ljTREp/3fk8EKN27mrPy3WTqWUjiqCkKFlCKHUKRO3/9rAasKizX3vPWy4ZTcNsIPmVWUHwjDFmiW4MyNA==",
       "path": "microsoft.aspnetcore.razor.language/6.0.24",
       "hashPath": "microsoft.aspnetcore.razor.language.6.0.24.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Razor.Runtime/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7YqK+H61lN6yj9RiQUko7oaOhKtRR9Q/kBcoWNRemhJdTIWOh1OmdvJKzZrMWOlff3BAjejkPQm+0V0qXk+B1w==",
+      "path": "microsoft.aspnetcore.razor.runtime/2.2.0",
+      "hashPath": "microsoft.aspnetcore.razor.runtime.2.2.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.TestHost/9.0.0": {
       "type": "package",
@@ -6814,7 +6852,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Html.Abstractions/9.0.0.0": {
+    "Microsoft.AspNetCore.Html.Abstractions.Reference/9.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -6964,12 +7002,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Razor/9.0.0.0": {
+    "Microsoft.AspNetCore.Razor.Reference/9.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Razor.Runtime/9.0.0.0": {
+    "Microsoft.AspNetCore.Razor.Runtime.Reference/9.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

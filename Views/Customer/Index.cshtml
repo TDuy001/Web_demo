@@ -1,0 +1,74 @@
+@model Demo3.ViewModels.PaginatedList<Demo3.Data.Entities.Customer>
+
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<h2>Customers</h2>
+
+<form asp-controller="Customer" asp-action="Index" method="get">
+    <p>
+        Search by name or email: <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" />
+        <input type="submit" value="Search" class="btn btn-default" />
+    </p>
+</form>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+            </th>
+            <th>
+                @Html.ActionLink("Email", "Index", new { sortOrder = ViewBag.EmailSortParm })
+            </th>
+            <th>Customer ID</th> 
+            <th>Name</th>
+            <th>Email</th>
+            <th>Customer Summary</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => customer.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => customer.Email)
+                </td>
+                <td>@customer.CustomerId</td>
+                <td>@customer.Name</td>
+                <td>@customer.Email</td>
+                <td>@customer.CustomerSummary</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@customer.CustomerId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@customer.CustomerId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@customer.CustomerId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="pagination">
+    @if (Model.HasPreviousPage)
+    {
+        <a asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-pageNumber="@(Model.PageIndex - 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]" class="btn btn-default">
+            Back
+        </a>
+    }
+    @Html.Raw($"Page {Model.PageIndex} of {Model.TotalPages}")
+    @if (Model.HasNextPage)
+    {
+        <a asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-pageNumber="@(Model.PageIndex + 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]" class="btn btn-default">
+            Next
+        </a>
+    }
+</div>
