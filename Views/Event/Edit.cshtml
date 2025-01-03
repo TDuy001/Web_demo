@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Event</title>
+</head>
+<body>
+    <h1>Edit Event</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form action="/Event/Edit" method="post">
+                <!-- Thêm thông báo lỗi -->
+                <div class="text-danger" id="validationSummary">
+                    <!-- Thông báo lỗi sẽ được hiển thị ở đây -->
+                </div>
+
+                <input type="hidden" name="EventId" value="{EventId}" />
+                <input type="hidden" name="RowVersion" value="{RowVersion}" /> <!-- Thêm trường RowVersion -->
+
+                <div class="form-group">
+                    <label for="Title" class="control-label">Title</label>
+                    <input type="text" id="Title" name="Title" class="form-control" value="{Title}" />
+                    <span class="text-danger" id="titleValidationError">
+                        <!-- Thông báo lỗi Title -->
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="Date" class="control-label">Date</label>
+                    <input type="date" id="Date" name="Date" class="form-control" value="{Date}" />
+                    <span class="text-danger" id="dateValidationError">
+                        <!-- Thông báo lỗi Date -->
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="VenueId" class="control-label">Venue</label>
+                    <select id="VenueId" name="VenueId" class="form-control">
+                        <option value="">Select Venue</option>
+                        <!-- Thêm các tùy chọn ở đây -->
+                    </select>
+                    <span class="text-danger" id="venueValidationError">
+                        <!-- Thông báo lỗi Venue -->
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="CategoryId" class="control-label">Category</label>
+                    <select id="CategoryId" name="CategoryId" class="form-control">
+                        <option value="">Select Category</option>
+                        <!-- Thêm các tùy chọn ở đây -->
+                    </select>
+                    <span class="text-danger" id="categoryValidationError">
+                        <!-- Thông báo lỗi Category -->
+                    </span>
+                </div>
+
+                <!-- Các thuộc tính bổ sung của lớp con -->
+                <div id="concertFields" style="display: none;">
+                    <div class="form-group">
+                        <label for="Performer" class="control-label">Performer</label>
+                        <input type="text" id="Performer" name="Performer" class="form-control" value="{Performer}" />
+                        <span class="text-danger" id="performerValidationError">
+                            <!-- Thông báo lỗi Performer -->
+                        </span>
+                    </div>
+                </div>
+
+                <div id="workshopFields" style="display: none;">
+                    <div class="form-group">
+                        <label for="Topic" class="control-label">Topic</label>
+                        <input type="text" id="Topic" name="Topic" class="form-control" value="{Topic}" />
+                        <span class="text-danger" id="topicValidationError">
+                            <!-- Thông báo lỗi Topic -->
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a href="/Event">Back to List</a>
+    </div>
+</body>
+</html>
